@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Ihsan Maulana, S.T.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/Style/Style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f8fafc',  // Soft Silver Light
+                            100: '#f1f5f9', // Soft Silver
+                            200: '#e2e8f0', // Silver Border
+                            600: '#475569', // Medium Navy
+                            700: '#334155', // Navy Lighter
+                            800: '#1e293b', // Deep Navy (Primary)
+                            900: '#0f172a', // Navy Dark (Premium)
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-navy-50 text-navy-900 font-sans antialiased">
+
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-navy-900/95 backdrop-blur-sm border-b border-navy-700/50 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-tight text-white">
+                IHSAN<span class="text-navy-200">MAULANA</span>
+            </a>
+            <div class="hidden md:flex space-x-4 text-sm font-medium text-navy-100">
+                <a href="#about"
+                    class="nav-item text-navy-100 hover:text-white transition duration-300 px-3 py-2 rounded-lg hover:bg-navy-800/50">Tentang</a>
+                <a href="#experience"
+                    class="nav-item text-navy-100 hover:text-white transition duration-300 px-3 py-2 rounded-lg hover:bg-navy-800/50">Pengalaman</a>
+                <a href="#projects"
+                    class="nav-item text-navy-100 hover:text-white transition duration-300 px-3 py-2 rounded-lg hover:bg-navy-800/50">Proyek</a>
+                <a href="#skills"
+                    class="nav-item text-navy-100 hover:text-white transition duration-300 px-3 py-2 rounded-lg hover:bg-navy-800/50">Sertifikasi</a>
+            </div>
+            <a href="#contact"
+                class="px-5 py-2 text-sm font-medium text-white bg-navy-800 rounded-full hover:bg-navy-700 transition shadow-lg">
+                Hubungi Saya
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-20 hero-gradient-bg">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="text-center md:text-left scroll-animate">
+                    <div
+                        class="inline-block px-4 py-2 mb-4 text-xs font-bold tracking-wider text-navy-900 uppercase bg-navy-200 rounded-full border-2 border-navy-400 shadow-md">
+                        Junior BME & Public Relations
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold text-navy-900 mb-6 tracking-tight">
+                        Ihsan Maulana, S.T.
+                    </h1>
+                    <p class="text-xl md:text-2xl text-navy-600 max-w-2xl mb-10 font-light">
+                        Teknik Biomedis | Administrasi | Reviewer Support
+                    </p>
+
+                    <!-- Moto Card -->
+                    <div
+                        class="moto-card max-w-xl bg-white p-6 rounded-2xl shadow-lg border-2 border-navy-300 transform hover:-translate-y-1 transition duration-300">
+                        <p
+                            class="text-navy-900 text-sm uppercase tracking-widest mb-3 font-bold bg-navy-100 px-4 py-2 rounded-lg inline-block">
+                            Moto Hidup</p>
+                        <div
+                            class="flex justify-center md:justify-start items-center space-x-4 text-lg font-semibold text-navy-900">
+                            <span
+                                class="moto-bubble bg-navy-200 px-3 py-1.5 rounded-lg border border-navy-300 font-bold">Listener</span>
+                            <i class="fas fa-arrow-right text-navy-600 text-sm"></i>
+                            <span
+                                class="moto-bubble bg-navy-200 px-3 py-1.5 rounded-lg border border-navy-300 font-bold">Watcher</span>
+                            <i class="fas fa-arrow-right text-navy-600 text-sm"></i>
+                            <span
+                                class="moto-bubble bg-navy-200 px-3 py-1.5 rounded-lg border border-navy-300 font-bold">Performer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Image -->
+                <div class="hero-image-container scroll-animate-right">
+                    <img src="Assets/Images/Foto Diri_Ihsan Maulana.png" alt="Ihsan Maulana" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About & Education Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="scroll-animate">
+                    <h2 class="text-3xl font-bold mb-6 text-navy-900">Tentang Saya</h2>
+                    <p class="text-navy-700 leading-relaxed mb-6 text-lg">
+                        Saya menjalani proses profesional dengan filosofi mendengarkan, mengamati, menganalisis, hingga
+                        menerjemahkannya menjadi dampak nyata. Memiliki latar belakang kuat dalam <strong>Teknik
+                            Biomedis (S1)</strong> dengan ketertarikan mendalam pada manajemen administrasi dan hubungan
+                        masyarakat.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="px-4 py-2 bg-navy-100 text-navy-800 rounded-lg text-sm font-medium border border-navy-200">Kimia
+                            &
+                            Ilmu Bahan</span>
+                        <span
+                            class="px-4 py-2 bg-navy-100 text-navy-800 rounded-lg text-sm font-medium border border-navy-200">Laboratory
+                            Skill</span>
+                        <span
+                            class="px-4 py-2 bg-navy-100 text-navy-800 rounded-lg text-sm font-medium border border-navy-200">Reviewer
+                            Support</span>
+                    </div>
+                </div>
+
+                <!-- Education Card -->
+                <div
+                    class="education-card bg-navy-50 p-8 rounded-2xl border-2 border-navy-200 relative overflow-hidden scroll-animate-right shadow-lg">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-navy-800/10 rounded-bl-full"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-navy-900">Telkom University</h3>
+                                <p class="text-navy-600">S1 Teknik Biomedis</p>
+                            </div>
+                            <i class="fas fa-graduation-cap text-3xl text-navy-700"></i>
+                        </div>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-navy-900 counter" data-target="3.93">0.00</span>
+                            <span class="text-navy-600 text-sm">/ 4.00 IPK</span>
+                        </div>
+                        <div class="text-sm text-navy-700 border-t-2 border-navy-200 pt-4">
+                            <p class="mb-1"><i class="fas fa-calendar-alt mr-2 text-navy-800"></i>Lulus: 27 Januari 2026
+                            </p>
+                            <p><i class="fas fa-award mr-2 text-navy-800"></i>Predikat Pujian (Cumlaude)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Split Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-navy-900">Pengalaman Profesional</h2>
+                <p class="text-navy-600 mt-2">Keseimbangan antara kepemimpinan organisasi dan keahlian teknis.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Organisasi (Leadership) - Individual Bubbles -->
+                <div class="scroll-animate-left">
+                    <div class="flex items-center mb-6">
+                        <div class="p-3 bg-navy-100 rounded-lg mr-4">
+                            <i class="fas fa-users text-navy-900 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900">Organisasi & PR</h3>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Bubble 1: Ketua Satria Muda -->
+                        <div
+                            class="experience-bubble bg-white p-5 rounded-xl border-2 border-navy-200 hover:border-navy-800 hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-navy-900 mb-1">Ketua - Satria Muda</h4>
+                                    <p class="text-sm text-navy-600">2025</p>
+                                </div>
+                                <div
+                                    class="w-10 h-10 bg-navy-900 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-crown text-white text-sm"></i>
+                                </div>
+                            </div>
+                            <p class="text-navy-700 text-sm mb-4">Memimpin organisasi dan manajemen tim.</p>
+                            <a href="https://drive.google.com/file/d/1ts6tAPzq3WFrW-G8bC4LnMg1gnWfSazu/view?usp=drive_link"
+                                target="_blank"
+                                class="inline-flex items-center px-4 py-2 bg-navy-900 text-white text-xs font-semibold rounded-lg hover:bg-navy-800 transition shadow-md">
+                                <i class="fas fa-certificate mr-2"></i>
+                                Lihat Sertifikasi
+                            </a>
+                        </div>
+
+                        <!-- Bubble 2: Staff PR HMTB -->
+                        <div
+                            class="experience-bubble bg-white p-5 rounded-xl border-2 border-navy-200 hover:border-navy-800 hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-navy-900 mb-1">Staff Public Relations - HMTB</h4>
+                                    <p class="text-sm text-navy-600">2024</p>
+                                </div>
+                                <div
+                                    class="w-10 h-10 bg-navy-800 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-bullhorn text-white text-sm"></i>
+                                </div>
+                            </div>
+                            <p class="text-navy-700 text-sm mb-4">Divisi Hubungan Masyarakat Himpunan Mahasiswa Teknik
+                                Biomedis.</p>
+                            <a href="https://drive.google.com/file/d/1WnF8cLER_znNn03r1zMfmHu0tEZfyUrk/view?usp=sharing"
+                                target="_blank"
+                                class="inline-flex items-center px-4 py-2 bg-navy-900 text-white text-xs font-semibold rounded-lg hover:bg-navy-800 transition shadow-md">
+                                <i class="fas fa-certificate mr-2"></i>
+                                Lihat Sertifikasi
+                            </a>
+                        </div>
+
+                        <!-- Bubble 3: Staff Diklat KSR PMI -->
+                        <div
+                            class="experience-bubble bg-white p-5 rounded-xl border-2 border-navy-200 hover:border-navy-800 hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-navy-900 mb-1">Staff Diklat - KSR PMI Tel-U</h4>
+                                    <p class="text-sm text-navy-600">2024</p>
+                                </div>
+                                <div
+                                    class="w-10 h-10 bg-navy-700 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-plus text-white text-sm"></i>
+                                </div>
+                            </div>
+                            <p class="text-navy-700 text-sm mb-4">Divisi Pendidikan dan Pelatihan UKM KSR PMI.</p>
+                            <a href="https://drive.google.com/file/d/144wlbxnDELVeFJO6Xo5HeLsjl5NNdkMG/view?usp=sharing"
+                                target="_blank"
+                                class="inline-flex items-center px-4 py-2 bg-navy-900 text-white text-xs font-semibold rounded-lg hover:bg-navy-800 transition shadow-md">
+                                <i class="fas fa-certificate mr-2"></i>
+                                Lihat Sertifikasi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Asisten Praktikum (Technical) - Individual Bubbles -->
+                <div class="scroll-animate-right">
+                    <div class="flex items-center mb-6">
+                        <div class="p-3 bg-navy-100 rounded-lg mr-4">
+                            <i class="fas fa-flask text-navy-800 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900">Asisten Laboratorium</h3>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Bubble 1: Physics & Instrumentation Lab -->
+                        <div
+                            class="experience-bubble bg-white p-5 rounded-xl border-2 border-navy-200 hover:border-navy-800 hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-navy-900 mb-1">Physics & Instrumentation Lab</h4>
+                                    <p class="text-sm text-navy-600">2025</p>
+                                </div>
+                                <div
+                                    class="w-10 h-10 bg-navy-900 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-microscope text-white text-sm"></i>
+                                </div>
+                            </div>
+                            <p class="text-navy-700 text-sm mb-4">Mengajar dan mendampingi praktikum instrumentasi
+                                medis.</p>
+                            <a href="https://drive.google.com/file/d/1GNTRt1hptAYOGNDjbXb79TgMPki2Eo3P/view?usp=sharing"
+                                target="_blank"
+                                class="inline-flex items-center px-4 py-2 bg-navy-900 text-white text-xs font-semibold rounded-lg hover:bg-navy-800 transition shadow-md">
+                                <i class="fas fa-certificate mr-2"></i>
+                                Lihat Sertifikasi
+                            </a>
+                        </div>
+
+                        <!-- Bubble 2: Programming & Network Security Lab -->
+                        <div
+                            class="experience-bubble bg-white p-5 rounded-xl border-2 border-navy-200 hover:border-navy-800 hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-navy-900 mb-1">Programming & Network Security Lab</h4>
+                                    <p class="text-sm text-navy-600">2024</p>
+                                </div>
+                                <div
+                                    class="w-10 h-10 bg-navy-800 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-code text-white text-sm"></i>
+                                </div>
+                            </div>
+                            <p class="text-navy-700 text-sm mb-4">Asisten praktikum pemrograman dan keamanan jaringan.
+                            </p>
+                            <a href="https://drive.google.com/file/d/1oDpQnMv8qXUtOCtwEetHgtcXNtPnPHCN/view?usp=sharing"
+                                target="_blank"
+                                class="inline-flex items-center px-4 py-2 bg-navy-900 text-white text-xs font-semibold rounded-lg hover:bg-navy-800 transition shadow-md">
+                                <i class="fas fa-certificate mr-2"></i>
+                                Lihat Sertifikasi
+                            </a>
+                        </div>
+
+                        <!-- Bubble 3: Basic Science Laboratory -->
+                        <div
+                            class="experience-bubble bg-white p-5 rounded-xl border-2 border-navy-200 hover:border-navy-800 hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-navy-900 mb-1">Basic Science Laboratory</h4>
+                                    <p class="text-sm text-navy-600">2023 - 2024</p>
+                                </div>
+                                <div
+                                    class="w-10 h-10 bg-navy-700 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-atom text-white text-sm"></i>
+                                </div>
+                            </div>
+                            <p class="text-navy-700 text-sm mb-4">Asisten praktikum sains dasar dan laboratorium umum.
+                            </p>
+                            <a href="https://drive.google.com/file/d/1B6ljmjA5KZXmInlZkZYiZuQp4dKi_JQZ/view?usp=sharing"
+                                target="_blank"
+                                class="inline-flex items-center px-4 py-2 bg-navy-900 text-white text-xs font-semibold rounded-lg hover:bg-navy-800 transition shadow-md">
+                                <i class="fas fa-certificate mr-2"></i>
+                                Lihat Sertifikasi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-navy-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-navy-900 mb-12 text-center">Proyek & Pencapaian</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Project Card 1 -->
+                <div
+                    class="project-card group bg-white p-6 rounded-xl border-2 border-navy-200 hover:shadow-xl hover:border-navy-800 transition-all duration-300 scroll-animate">
+                    <div
+                        class="project-number h-10 w-10 bg-navy-100 rounded-full flex items-center justify-center shadow-sm mb-4 text-navy-900 font-bold text-lg border border-navy-200">
+                        1</div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">BIMA KEMENDIKTI SAINTEK</h3>
+                    <p class="text-xs font-semibold text-navy-600 uppercase tracking-wide mb-3">Undergraduate Student
+                        Assistant</p>
+                    <p class="text-navy-700 text-sm mb-4">Terlibat dalam penelitian dan asistensi proyek tingkat
+                        nasional.</p>
+                    <a href="https://drive.google.com/drive/folders/1hTilMuK-CX2KBUIWir7k3Prpbst3yufU?usp=drive_link"
+                        target="_blank"
+                        class="inline-flex items-center text-sm font-medium text-navy-900 group-hover:text-navy-800 transition">
+                        Bukti Dokumen <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div
+                    class="project-card group bg-white p-6 rounded-xl border-2 border-navy-200 hover:shadow-xl hover:border-navy-800 transition-all duration-300 scroll-animate">
+                    <div
+                        class="project-number h-10 w-10 bg-navy-100 rounded-full flex items-center justify-center shadow-sm mb-4 text-navy-900 font-bold text-lg border border-navy-200">
+                        2</div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">Gerobak Enzym</h3>
+                    <p class="text-xs font-semibold text-navy-600 uppercase tracking-wide mb-3">Ketua Tim - PIK 2025</p>
+                    <p class="text-navy-700 text-sm mb-4">Memimpin tim dalam Program Inkubasi Kewirausahaan 2025.</p>
+                    <a href="https://drive.google.com/file/d/1LefRKxK-2-xadVDbI3jIu4NavTjCKcS4/view?usp=sharing"
+                        target="_blank"
+                        class="inline-flex items-center text-sm font-medium text-navy-900 group-hover:text-navy-800 transition">
+                        Bukti Dokumen <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div
+                    class="project-card group bg-white p-6 rounded-xl border-2 border-navy-200 hover:shadow-xl hover:border-navy-800 transition-all duration-300 scroll-animate">
+                    <div
+                        class="project-number h-10 w-10 bg-navy-100 rounded-full flex items-center justify-center shadow-sm mb-4 text-navy-900 font-bold text-lg border border-navy-200">
+                        3</div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">AYOBERAKSI 2025</h3>
+                    <p class="text-xs font-semibold text-navy-600 uppercase tracking-wide mb-3">Anggota Mahasiswa</p>
+                    <p class="text-navy-700 text-sm mb-4">Partisipasi aktif dalam kegiatan sosial dan aksi mahasiswa.
+                    </p>
+                    <a href="#"
+                        class="inline-flex items-center text-sm font-medium text-navy-900 group-hover:text-navy-800 transition">
+                        Bukti Dokumen <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Additional Item: Public Speaking -->
+            <div
+                class="mt-8 p-6 bg-navy-900 rounded-xl text-white flex flex-col md:flex-row justify-between items-start md:items-center shadow-xl border border-navy-700">
+                <div class="mb-4 md:mb-0 flex-1">
+                    <span
+                        class="inline-block px-3 py-1 bg-navy-700 text-navy-100 text-xs font-bold uppercase tracking-wider rounded-full mb-3 border border-navy-600">
+                        Personal Branding
+                    </span>
+                    <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+                        <i class="fas fa-microphone"></i>
+                        Public Speaking
+                    </h3>
+                    <p class="text-navy-200 text-sm">
+                        Membangun citra profesional melalui komunikasi publik
+                    </p>
+                </div>
+                <a href="https://drive.google.com/file/d/1uBLgeBa_Ve5VoSCE6BK5M3XNuQpQRwR7/view?usp=drive_link"
+                    target="_blank"
+                    class="px-6 py-2 bg-white text-navy-900 rounded-lg text-sm font-bold hover:bg-navy-50 transition shadow-md flex items-center gap-2">
+                    <i class="fas fa-certificate"></i>
+                    Lihat Sertifikasi
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Certification Training Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-navy-900 mb-4 text-center">Sertifikasi Pelatihan</h2>
+            <p class="text-navy-600 text-center mb-12">Sertifikat pelatihan profesional yang telah dicapai</p>
+
+            <div class="flex flex-wrap justify-center gap-12 max-w-4xl mx-auto">
+                <!-- Microsoft Excel Certification -->
+                <div
+                    class="certification-badge flex flex-col items-center justify-center bg-white px-6 py-5 rounded-2xl shadow-md border-2 border-navy-200 transition-all duration-300">
+                    <i class="fas fa-file-excel text-navy-800 text-3xl mb-3"></i>
+                    <span class="font-bold text-navy-900 text-lg mb-3">Microsoft Excel</span>
+                    <a href="https://drive.google.com/file/d/18Z2Jm7hg4hFLMVJuZfB_0broHVhC0e_s/view?usp=drive_link"
+                        target="_blank"
+                        class="px-5 py-2 bg-navy-800 text-white rounded-lg text-sm font-bold hover:bg-navy-700 transition shadow-md">
+                        Lihat Sertifikasi
+                    </a>
+                </div>
+
+                <!-- K3 Laboratorium Certification -->
+                <div
+                    class="certification-badge flex flex-col items-center justify-center bg-white px-6 py-5 rounded-2xl shadow-md border-2 border-navy-200 transition-all duration-300">
+                    <i class="fas fa-shield-alt text-navy-800 text-3xl mb-3"></i>
+                    <span class="font-bold text-navy-900 text-lg mb-3">K3 Laboratorium</span>
+                    <a href="https://drive.google.com/file/d/1hAk_-eAq95Xf8D7bBLyfON1ieMCQn6hk/view?usp=drive_link"
+                        target="_blank"
+                        class="px-5 py-2 bg-navy-800 text-white rounded-lg text-sm font-bold hover:bg-navy-700 transition shadow-md">
+                        Lihat Sertifikasi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-navy-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Siap untuk Berkolaborasi?</h2>
+            <p class="text-navy-200 mb-8 max-w-xl mx-auto">
+                Saya siap membawa semangat analisis dan eksekusi nyata ke dalam tim Anda. Hubungi saya untuk diskusi
+                lebih lanjut.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+                <a href="https://www.linkedin.com/in/ihsan-maulana-01b4162b3" target="_blank"
+                    class="px-8 py-3 bg-transparent border border-white text-white rounded-full font-bold hover:bg-white hover:text-gray-900 transition">
+                    <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                </a>
+                <a href="https://www.instagram.com/sansan_xv/?next=%2F" target="_blank"
+                    class="px-8 py-3 bg-transparent border border-white text-white rounded-full font-bold hover:bg-white hover:text-gray-900 transition">
+                    <i class="fab fa-instagram mr-2"></i>Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy-900 border-t border-navy-700 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-white text-sm">
+                &copy; 2026 Kodinginaja
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="Assets/Script/Script.js"></script>
+</body>
+
+</html>
