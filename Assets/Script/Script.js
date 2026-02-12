@@ -43,6 +43,71 @@ function initNavbarScroll() {
     });
 }
 
+// ===== MOBILE MENU TOGGLE =====
+function initMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+    // Select all links including the CTA which now has the class
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (mobileMenuBtn && mobileMenu) {
+        // Toggle function for both open and close
+        const toggleMenu = () => {
+            const isOpen = mobileMenu.classList.contains('active');
+            
+            if (isOpen) {
+                // Close
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                if (mobileMenuBackdrop) {
+                    mobileMenuBackdrop.classList.remove('active');
+                    mobileMenuBackdrop.style.pointerEvents = 'none';
+                }
+                document.body.style.overflow = '';
+            } else {
+                // Open
+                mobileMenu.classList.add('active');
+                mobileMenuBtn.classList.add('active');
+                if (mobileMenuBackdrop) {
+                    mobileMenuBackdrop.classList.add('active');
+                    mobileMenuBackdrop.style.pointerEvents = 'auto';
+                }
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Determine if we need to close (only if it's currently open)
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMenu(); // Reuse toggle to ensure all states (backdrop, etc) are reset
+                }
+            });
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+
+        // Close when clicking backdrop
+        if (mobileMenuBackdrop) {
+            mobileMenuBackdrop.addEventListener('click', () => {
+                toggleMenu();
+            });
+        }
+    }
+}
+
 // ===== SMOOTH SCROLL FOR NAVIGATION =====
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -367,11 +432,12 @@ document.head.appendChild(style);
 
 // ===== INITIALIZE ALL FUNCTIONS =====
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 Portfolio Website Initialized');
+    console.log('Portfolio Website Initialized');
 
     // Core animations
     initPageLoader();
     initNavbarScroll();
+    initMobileMenu();
     initSmoothScroll();
     initScrollReveal();
 
@@ -391,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // initTypingEffect(); // Uncomment if typing effect is desired
     // initCursorTrail(); // Requires cursor trail elements
 
-    console.log('✨ All animations loaded successfully');
+    console.log('All animations loaded successfully');
 });
 
 // ===== PERFORMANCE OPTIMIZATION =====

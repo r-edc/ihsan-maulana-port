@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio - Ihsan Maulana, S.T.</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Assets/Style/Style.css">
     <link rel="icon" type="image/svg+xml" href="Assets/Images/favicon.svg">
 
+    <!-- Tailwind CSS (CDN) - Warning suppressed for cleaner console -->
+    <script>
+        const originalWarn = console.warn;
+        console.warn = (...args) => {
+            if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+            originalWarn.apply(console, args);
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -43,27 +52,64 @@
     </div>
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 bg-navy-900/95 backdrop-blur-sm border-b border-navy-700/50 shadow-lg">
+    <nav class="fixed z-50 bg-navy-900/95 backdrop-blur-sm shadow-lg transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl font-bold tracking-tight text-white">
-                IHSAN<span class="text-navy-200">MAULANA</span>
+                Ihsan<span class="text-navy-200"> Maulana</span>
             </a>
+            
+            <!-- Desktop Links -->
             <div class="hidden md:flex space-x-4 text-sm font-medium text-navy-100">
-                <a href="#about"
-                    class="nav-item text-navy-100 hover:text-white transition duration-300 px-3 py-2 rounded-lg hover:bg-navy-800/50">Tentang</a>
-                <a href="#experience"
-                    class="nav-item text-navy-100 hover:text-white transition duration-300 px-3 py-2 rounded-lg hover:bg-navy-800/50">Pengalaman</a>
-                <a href="#projects"
-                    class="nav-item text-navy-100 hover:text-white transition duration-300 px-3 py-2 rounded-lg hover:bg-navy-800/50">Proyek</a>
-                <a href="#skills"
-                    class="nav-item text-navy-100 hover:text-white transition duration-300 px-3 py-2 rounded-lg hover:bg-navy-800/50">Sertifikasi</a>
+                <a href="#about" class="nav-item text-navy-100 px-4 py-2">Tentang</a>
+                <a href="#experience" class="nav-item text-navy-100 px-4 py-2">Pengalaman</a>
+                <a href="#projects" class="nav-item text-navy-100 px-4 py-2">Proyek</a>
+                <a href="#skills" class="nav-item text-navy-100 px-4 py-2">Sertifikasi</a>
             </div>
-            <a href="#contact"
-                class="px-5 py-2 text-sm font-medium text-white bg-navy-800 rounded-full hover:bg-navy-700 transition shadow-lg">
-                Hubungi Saya
-            </a>
+
+            <div class="flex items-center space-x-4">
+                <a href="#contact"
+                    class="hidden sm:inline-block px-5 py-2 text-sm font-medium text-white bg-navy-800 rounded-full hover:bg-navy-700 transition shadow-lg">
+                    Hubungi Saya
+                </a>
+                
+                <!-- Elegant Hamburger Button -->
+                <button id="mobile-menu-btn" class="md:hidden relative w-10 h-10 flex flex-col items-center justify-center group focus:outline-none z-[70]" aria-label="Toggle Menu">
+                    <span class="hamburger-line w-6 h-0.5 bg-white mb-1.5 transition-all duration-300 origin-center"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-white mb-1.5 transition-all duration-300"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+                </button>
+            </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay Backdrop -->
+    <div id="mobile-menu-backdrop" class="fixed inset-0 z-[55] bg-navy-950/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-500 md:hidden"></div>
+
+    <!-- Mobile Menu Drawer (Side Panel Version) -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-[75%] max-w-sm z-[60] bg-white/98 backdrop-blur-xl shadow-2xl translate-x-full transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] md:hidden pointer-events-none opacity-0 border-l border-gray-200">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-end items-center p-6 h-20">
+                <!-- Spacer for hamburger alignment -->
+            </div>
+            
+            <div class="flex flex-col items-center justify-start pt-10 flex-1 space-y-6 text-center">
+                <a href="#about" class="mobile-nav-link text-xl font-medium text-blue-600 hover:text-blue-800 transition-all duration-300 tracking-wide" style="--delay: 1">Tentang</a>
+                <a href="#experience" class="mobile-nav-link text-xl font-medium text-blue-600 hover:text-blue-800 transition-all duration-300 tracking-wide" style="--delay: 2">Pengalaman</a>
+                <a href="#projects" class="mobile-nav-link text-xl font-medium text-blue-600 hover:text-blue-800 transition-all duration-300 tracking-wide" style="--delay: 3">Proyek</a>
+                <a href="#skills" class="mobile-nav-link text-xl font-medium text-blue-600 hover:text-blue-800 transition-all duration-300 tracking-wide" style="--delay: 4">Sertifikasi</a>
+                
+                <div class="pt-8 transition-all duration-500 opacity-0 transform translate-y-4" id="mobile-menu-cta" style="transition-delay: 300ms">
+                    <a href="#contact" class="mobile-nav-link px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-semibold text-sm shadow-lg hover:shadow-indigo-500/30 transition transform active:scale-95">
+                        Let's Talk
+                    </a>
+                </div>
+            </div>
+            
+            <div class="p-8 text-center border-t border-gray-200 opacity-80">
+                <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-light">Ihsan Maulana &copy; 2026</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <header class="pt-40 pb-28 hero-gradient-bg">
@@ -79,7 +125,7 @@
                         Ihsan Maulana, S.T.
                     </h1>
                     <p class="text-xl md:text-2xl text-navy-600 max-w-2xl mb-10 font-light">
-                        Teknik Biomedis | Administrasi | Reviewer Support
+                        Biomedical Engineering | Research Assistant | Sustainability Impact
                     </p>
 
                     <!-- Moto Card -->
@@ -143,10 +189,7 @@
                 <div class="scroll-animate">
                     <h2 class="text-3xl font-bold mb-6 text-navy-900">Tentang Saya</h2>
                     <p class="text-navy-700 leading-relaxed mb-6 text-lg">
-                        Saya menjalani proses profesional dengan filosofi mendengarkan, mengamati, menganalisis, hingga
-                        menerjemahkannya menjadi dampak nyata. Memiliki latar belakang kuat dalam <strong>Teknik
-                            Biomedis (S1)</strong> dengan ketertarikan mendalam pada manajemen administrasi dan hubungan
-                        masyarakat.
+                        Saya menjalani proses professional dengan filosofi mendengarkan,mengamati, menganalisis, hingga menerjemahkannya menjadi dampak nyata. Lulusan S1 Teknik Biomedis dengan predikat <strong>Summa Cummlaude</strong>, memiliki keterampilan kuat pada bidang Public Speaking dan Leadership.Memiliki pengalaman sebagai asisten dosen, asisten laboratorium, dan banyak proyek SDGs.
                     </p>
                     <div class="flex flex-wrap gap-3">
                         <span
@@ -213,7 +256,7 @@
                             class="experience-bubble bg-white p-5 rounded-xl border-2 border-navy-200 hover:border-navy-800 hover:shadow-xl transition-all duration-300">
                             <div class="flex items-start justify-between mb-3">
                                 <div class="flex-1">
-                                    <h4 class="font-bold text-navy-900 mb-1">Ketua - Satria Muda</h4>
+                                    <h4 class="font-bold text-navy-900 mb-1">Ketua - Satria Muda Kemahasiswaan Tel-U Purwokerto</h4>
                                     <p class="text-sm text-navy-600">2025</p>
                                 </div>
                                 <div
@@ -221,7 +264,7 @@
                                     <i class="fas fa-crown text-white text-sm"></i>
                                 </div>
                             </div>
-                            <p class="text-navy-700 text-sm mb-4">Memimpin organisasi dan manajemen tim.</p>
+                            <p class="text-navy-700 text-sm mb-4">Menjadikan kampus cabang sebagai kampus terbaik dalam pengelolaan ajang PKM.</p>
                             <a href="https://drive.google.com/file/d/1ts6tAPzq3WFrW-G8bC4LnMg1gnWfSazu/view?usp=drive_link"
                                 target="_blank"
                                 class="inline-flex items-center px-4 py-2 bg-navy-900 text-white text-xs font-semibold rounded-lg hover:bg-navy-800 transition shadow-md">
@@ -235,7 +278,7 @@
                             class="experience-bubble bg-white p-5 rounded-xl border-2 border-navy-200 hover:border-navy-800 hover:shadow-xl transition-all duration-300">
                             <div class="flex items-start justify-between mb-3">
                                 <div class="flex-1">
-                                    <h4 class="font-bold text-navy-900 mb-1">Staff Public Relations - HMTB</h4>
+                                    <h4 class="font-bold text-navy-900 mb-1">Staff of Public Relations - HMTB</h4>
                                     <p class="text-sm text-navy-600">2024</p>
                                 </div>
                                 <div
@@ -243,8 +286,7 @@
                                     <i class="fas fa-bullhorn text-white text-sm"></i>
                                 </div>
                             </div>
-                            <p class="text-navy-700 text-sm mb-4">Divisi Hubungan Masyarakat Himpunan Mahasiswa Teknik
-                                Biomedis.</p>
+                            <p class="text-navy-700 text-sm mb-4">Penguatan internal skill pengurus dan kontribusi juara 2 HIMA AWARDS</p>
                             <a href="https://drive.google.com/file/d/1WnF8cLER_znNn03r1zMfmHu0tEZfyUrk/view?usp=sharing"
                                 target="_blank"
                                 class="inline-flex items-center px-4 py-2 bg-navy-900 text-white text-xs font-semibold rounded-lg hover:bg-navy-800 transition shadow-md">
@@ -258,7 +300,7 @@
                             class="experience-bubble bg-white p-5 rounded-xl border-2 border-navy-200 hover:border-navy-800 hover:shadow-xl transition-all duration-300">
                             <div class="flex items-start justify-between mb-3">
                                 <div class="flex-1">
-                                    <h4 class="font-bold text-navy-900 mb-1">Staff Diklat - KSR PMI Tel-U</h4>
+                                    <h4 class="font-bold text-navy-900 mb-1">Staff Diklat - KSR PMI Tel-U Purwokerto</h4>
                                     <p class="text-sm text-navy-600">2024</p>
                                 </div>
                                 <div
@@ -266,7 +308,7 @@
                                     <i class="fas fa-plus text-white text-sm"></i>
                                 </div>
                             </div>
-                            <p class="text-navy-700 text-sm mb-4">Divisi Pendidikan dan Pelatihan UKM KSR PMI.</p>
+                            <p class="text-navy-700 text-sm mb-4">Edukasi penanganan pertama medis dan kontribusi juara 2 UKM AWARDS.</p>
                             <a href="https://drive.google.com/file/d/144wlbxnDELVeFJO6Xo5HeLsjl5NNdkMG/view?usp=sharing"
                                 target="_blank"
                                 class="inline-flex items-center px-4 py-2 bg-navy-900 text-white text-xs font-semibold rounded-lg hover:bg-navy-800 transition shadow-md">
@@ -300,8 +342,7 @@
                                     <i class="fas fa-microscope text-white text-sm"></i>
                                 </div>
                             </div>
-                            <p class="text-navy-700 text-sm mb-4">Mengajar dan mendampingi praktikum instrumentasi
-                                medis.</p>
+                            <p class="text-navy-700 text-sm mb-4">Edukasi BIOPAC dan kalibrasi Instrumentasi medis.</p>
                             <a href="https://drive.google.com/file/d/1GNTRt1hptAYOGNDjbXb79TgMPki2Eo3P/view?usp=sharing"
                                 target="_blank"
                                 class="inline-flex items-center px-4 py-2 bg-navy-900 text-white text-xs font-semibold rounded-lg hover:bg-navy-800 transition shadow-md">
@@ -323,7 +364,7 @@
                                     <i class="fas fa-code text-white text-sm"></i>
                                 </div>
                             </div>
-                            <p class="text-navy-700 text-sm mb-4">Asisten praktikum pemrograman dan keamanan jaringan.
+                            <p class="text-navy-700 text-sm mb-4">Edukasi Phyton dan pemrograman.
                             </p>
                             <a href="https://drive.google.com/file/d/1oDpQnMv8qXUtOCtwEetHgtcXNtPnPHCN/view?usp=sharing"
                                 target="_blank"
@@ -346,7 +387,7 @@
                                     <i class="fas fa-atom text-white text-sm"></i>
                                 </div>
                             </div>
-                            <p class="text-navy-700 text-sm mb-4">Asisten praktikum sains dasar dan laboratorium umum.
+                            <p class="text-navy-700 text-sm mb-4">Eksperimental Alat dan Bahan Kimia, serta SOP K3 Lab.
                             </p>
                             <a href="https://drive.google.com/file/d/1B6ljmjA5KZXmInlZkZYiZuQp4dKi_JQZ/view?usp=sharing"
                                 target="_blank"

@@ -243,57 +243,117 @@ html {
 
 /* ===== NAVBAR ENHANCEMENTS ===== */
 nav {
-  transition: all var(--transition-normal);
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav.scrolled {
-  background: rgba(15, 23, 42, 0.98) !important;
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(12px);
+  top: 1rem;
+  width: 85%;
+  background: rgba(15, 23, 42, 0.9) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  border-color: rgba(255, 255, 255, 0.2);
 }
+
+/* Adjustments for Mobile Navbar */
+@media (max-width: 768px) {
+  nav {
+    top: 0.75rem;
+    width: 95%;
+    border-radius: 16px;
+    padding: 0.5rem 1rem;
+  }
+  
+  nav .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* active Mobile Menu Overlay (Backdrop) */
+#mobile-menu-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Active Mobile Menu Drawer */
+#mobile-menu.active {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hamburger Animation */
+#mobile-menu-btn.active .hamburger-line {
+  background-color: #2563eb; /* blue-600 to match menu text */
+}
+
+#mobile-menu-btn.active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+#mobile-menu-btn.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+#mobile-menu-btn.active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Staggered Link reveal */
+.mobile-nav-link {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#mobile-menu.active .mobile-nav-link {
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+
+#mobile-menu.active #mobile-menu-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Specific delays based on --delay variable in HTML */
+#mobile-menu.active .mobile-nav-link[style*="--delay: 1"] { transition-delay: 200ms; }
+#mobile-menu.active .mobile-nav-link[style*="--delay: 2"] { transition-delay: 300ms; }
+#mobile-menu.active .mobile-nav-link[style*="--delay: 3"] { transition-delay: 400ms; }
+#mobile-menu.active .mobile-nav-link[style*="--delay: 4"] { transition-delay: 500ms; }
 
 /* ===== PREMIUM NAVIGATION ANIMATIONS ===== */
 .nav-item {
   position: relative;
-  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 999px;
 }
 
-/* Sliding underline effect */
-.nav-item::before {
-  content: "";
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--navy-200), white, var(--navy-200));
-  transform: translateX(-50%);
-  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+/* Pill Hover Effect */
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff !important;
+  transform: translateY(-1px);
 }
 
-.nav-item:hover::before {
-  width: 80%;
+.nav-item:active {
+  transform: translateY(0) scale(0.95);
+  background: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* Shimmer sweep on hover */
-.nav-item::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.15),
-    transparent
-  );
-  transition: left 0.6s ease;
-}
-
-.nav-item:hover::after {
-  left: 100%;
+/* Remove legacy underline effect */
+.nav-item::before, .nav-item::after {
+  display: none !important;
 }
 
 /* Scale bounce on hover */
@@ -398,67 +458,77 @@ nav.scrolled {
 
 .hero-image-container {
   position: relative;
-  max-width: 450px;
+  max-width: 480px; /* Slightly larger for better presence */
   margin: 0 auto;
-  /* Only initial fadeIn, no continuous floating */
-  animation: fadeInUp 1s ease-out 0.2s backwards;
   z-index: 2;
+  /* Initial reveal animation */
+  animation: heroReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 
-/* Organic navy shape background behind image - subtle blend! */
+/* ================================
+   NEW PROFESSIONAL HERO DESIGN
+   Theory: Structured, Geometric, Tech-Inspired
+   ================================ */
+
+/* 1. Main Background Circle (Glassmorphism + Gradient) */
 .hero-image-container::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 110%;
-  height: 110%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
 
-  /* Organic blob shape with navy gradient - slightly larger for better frame */
-  background: linear-gradient(
-    135deg,
-    var(--navy-800) 0%,
-    var(--navy-900) 40%,
-    #0a0f1e 80%,
-    var(--navy-900) 100%
+  /* Subtle, professional gradient */
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(241, 245, 249, 0.8) 0%,
+    rgba(226, 232, 240, 0.4) 100%
   );
 
-  /* Softer organic irregular shape */
-  border-radius: 55% 45% 50% 50% / 50% 55% 45% 50%;
+  /* Glass effect */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 
-  /* Premium multi-layer shadows */
+  /* Depth shadow */
   box-shadow:
-    0 30px 60px rgba(15, 23, 42, 0.25),
-    0 20px 40px rgba(30, 41, 59, 0.18),
-    0 10px 20px rgba(51, 65, 85, 0.12),
-    inset 0 -15px 35px rgba(0, 0, 0, 0.3),
-    inset 0 15px 35px rgba(255, 255, 255, 0.05);
+    0 20px 50px rgba(15, 23, 42, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.8);
 
-  z-index: -1;
-  opacity: 0.85;
-
-  /* Floating + morphing animation */
-  animation: floatMorph 15s ease-in-out infinite;
+  z-index: -2;
 }
 
-/* Wave morph animation for background shape - EDGES ONLY! */
-@keyframes floatMorph {
-  0%,
-  100% {
-    border-radius: 55% 45% 50% 50% / 50% 55% 45% 50%;
-  }
+/* 2. Rotating Tech Ring (Dashed/Structured) */
+.hero-image-container::after {
+  content: "";
+  position: absolute;
+  top: 48%;
+  left: 48%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Centered but slightly offset by top/left for layering */
+  width: 94%;
+  height: 94%;
+  border-radius: 50%;
 
-  25% {
-    border-radius: 45% 55% 60% 40% / 55% 45% 55% 45%;
-  }
+  /* Tech border style */
+  border: 2px dashed var(--navy-300);
 
-  50% {
-    border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
-  }
+  /* Animation */
+  animation: rotateRing 60s linear infinite;
+  z-index: -3;
+  opacity: 0.6;
+}
 
-  75% {
-    border-radius: 60% 40% 45% 55% / 45% 55% 45% 55%;
+@keyframes rotateRing {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
@@ -478,52 +548,41 @@ nav.scrolled {
   height: auto;
   position: relative;
   z-index: 1;
-
-  /* Smooth gradient fade at bottom - PREMIUM & ELEGANT! */
+  
+  /* Added gradient mask to blend bottom with background */
   -webkit-mask-image: linear-gradient(
     to bottom,
     black 0%,
-    black 75%,
-    rgba(0, 0, 0, 0.7) 90%,
+    black 85%,
     transparent 100%
   );
   mask-image: linear-gradient(
     to bottom,
     black 0%,
-    black 75%,
-    rgba(0, 0, 0, 0.7) 90%,
+    black 85%,
     transparent 100%
   );
-
-  /* Ultra smooth edges for PNG transparency */
+  
+  /* Professional Image Rendering */
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-
-  /* Smooth alpha channel */
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  will-change: filter;
-
-  /* Premium shadow with navy tint */
-  filter: drop-shadow(0 20px 40px rgba(15, 23, 42, 0.2))
-    drop-shadow(0 10px 20px rgba(30, 41, 59, 0.15)) contrast(1.02)
-    brightness(1.02);
-
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Ultra-Premium Shadow (Soft & Realistic) */
+  filter: drop-shadow(0 15px 30px rgba(15, 23, 42, 0.15)) 
+          contrast(1.05) 
+          brightness(1.02);
+          
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   object-fit: contain;
-  object-position: center;
-  max-height: 450px;
+  object-position: bottom center;
+  max-height: 500px; /* Slightly taller allowed */
 }
 
 .hero-image:hover {
-  transform: scale(1.03) translateY(-5px) translateZ(0);
-  /* Enhanced navy glow on hover */
-  filter: drop-shadow(0 25px 50px rgba(30, 41, 59, 0.28))
-    drop-shadow(0 15px 30px rgba(51, 65, 85, 0.2)) contrast(1.03)
-    brightness(1.03);
+  transform: scale(1.02) translateY(-2px);
+  filter: drop-shadow(0 20px 40px rgba(30, 41, 59, 0.2)) 
+          contrast(1.08) 
+          brightness(1.04);
 }
 
 /* ===== HERO FLOATING ANIMATION (Added) ===== */
@@ -654,13 +713,17 @@ nav.scrolled {
 
 /* Gradient overlay on hover */
 .certification-badge::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.03) 0%, rgba(30, 41, 59, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.03) 0%,
+    rgba(30, 41, 59, 0.05) 100%
+  );
   opacity: 0;
   transition: opacity 0.5s ease;
   border-radius: inherit;
